@@ -12,8 +12,10 @@ export class Node implements d3.SimulationNodeDatum {
   id: string;
   linkCount = 0 ;
   Color?: string ;
+  community?: number ;
 
-  constructor(id) {
+
+  constructor(id, public label: string = 'Node') {
     this.id = id;
   }
 
@@ -30,7 +32,14 @@ export class Node implements d3.SimulationNodeDatum {
   }
 // The Color of The Node
   get color() {
-    const index = Math.floor(APP_CONFIG.SPECTRUM.length * this.normal());
-    return APP_CONFIG.SPECTRUM[index];
+     /*
+    const letters = '0123456789ABCDEF' ;
+    let color = '#' ;
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color ;
+    const index = Math.floor(APP_CONFIG.SPECTRUM.length * this.normal());*/
+    return APP_CONFIG.SPECTRUM[this.community];
   }
 }

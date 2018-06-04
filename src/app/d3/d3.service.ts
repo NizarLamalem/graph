@@ -65,4 +65,21 @@ export class D3Service {
     const sg = new ForceDirectedGraph(nodes, links, options);
     return sg;
   }
+
+  communityColors() {
+    const letters = '0123456789ABCDEF' ;
+    let color = '#' ;
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color ;
+  }
+  notInArray(items: Array<string> , str: string): boolean {
+    for (const item of items) {
+      if (item === str) {
+      return false ;
+    }
+    }
+  return true ;
+  }
 }
