@@ -31,10 +31,15 @@ export class AppComponent {
         this.links.push(new Link(i, i * m));
       }
     }
-    console.log(this.nodes) ;
-    console.log(this.links) ;
+
     const community = jLouvain().nodes(this.nodes).edges(this.links).partition_init();
     const result = community() ;
-    console.log(result) ;
+      console.log('Nodes And Their Communities ') ;
+    // The result element of the community detection is a dictionary with nodes id as keys and nodes community as value
+    for (const key in result) {
+      if (result.hasOwnProperty(key)) {
+        console.log('key ' + key + '==> ' + result[key]);
+      }
+    }
   }
 }

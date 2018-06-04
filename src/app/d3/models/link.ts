@@ -8,8 +8,9 @@ export class Link implements d3.SimulationLinkDatum<Node> {
   source: Node | string | number;
   target: Node | string | number;
   weight: number ;
-  constructor(source, target, number= 0 ) {
+  constructor(source, target, weight= 0 ) {
     this.source = source;
     this.target = target;
+    this.weight = weight ;
   }
 }

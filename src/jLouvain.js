@@ -99,7 +99,6 @@
 				mat[edge.target] = mat[edge.target] || {};
 				mat[edge.target][edge.source] = edge.weight;
 			});
-			console.log(mat) ;
 			return mat;
 		}
 
@@ -314,6 +313,17 @@
 
 			return partition;
 		}
+		//Costume code to provide Connectors
+		function nodes_Array_To_Array(nodes) {
+			
+			if (arguments.length > 0) {
+				nds = new Array() ;
+				for(var i=0 ; i<nodes.length;i++){
+					nds.push(nodes[i].id)
+				}
+			}
+			return nds;
+		}
 
 
 		function generate_dendogram(graph, part_init) {
@@ -363,16 +373,15 @@
 		};
 
 		core.nodes = function (nds) {
-			console.log('Nodes') ;
+			
 			if (arguments.length > 0) {
-				original_graph_nodes = nds;
+				original_graph_nodes = nodes_Array_To_Array(nds);
 			}
-
 			return core;
 		};
 
 		core.edges = function (edgs) {
-			console.log('Edges') ;
+			
 			if (typeof original_graph_nodes === 'undefined')
 				throw 'Please provide the graph nodes first!';
 
@@ -385,7 +394,6 @@
 					'_assoc_mat': assoc_mat
 				};
 			}
-
 			return core;
 
 		};
