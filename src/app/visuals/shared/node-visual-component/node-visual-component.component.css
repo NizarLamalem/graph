@@ -16,11 +16,14 @@
   fill: white;
 }
 
-.node text {
-    display: none;
-    font: 20px sans-serif;
+.Node-text {
+        width: 120px;
+        background-color: red;
+        color: red;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 0;
+        position: absolute;
+        z-index: 1;
   }
 
-.node:hover text {
-    display: inline;
-}

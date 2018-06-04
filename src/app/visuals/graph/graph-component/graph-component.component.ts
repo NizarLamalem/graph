@@ -53,4 +53,5 @@ export class GraphComponent implements OnInit, AfterViewInit {
       height: window.innerHeight
     };
   }
+
 }
