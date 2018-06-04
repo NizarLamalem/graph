@@ -21,16 +21,16 @@ import { Node } from '../../../d3';
           ><!--Font Node Size-->
         {{node.id}}
       </svg:text>
-      <svg:text *ngIf="isShown" class="Node-text">
+      <svg:title *ngIf="isShown" class="tooltip">
         {{node.label}}
-      </svg:text>
+      </svg:title>
     </svg:g>
   `,
   styleUrls: ['./node-visual-component.component.css']
 })
 export class NodeVisualComponentComponent {
   @Input('nodeVisual') node: Node ;
-  isShown = false ;
+  isShown = true ;
 
   // show and hide label
   showLabel($event, node) {
